@@ -1,0 +1,291 @@
+:root{font-family:"Segoe UI",Arial,sans-serif;color:#20232b;--accent:#192031;--muted:#747985;font-synthesis:none;font-size:13px}
+*{box-sizing:border-box}
+html,body,#root{margin:0;width:100%;height:100%;background:transparent}
+body{overflow:hidden}
+button,textarea,input{font:inherit}
+button{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid #deddd9;background:#f2f0ec;color:inherit;padding:6px 10px;border-radius:9px;cursor:pointer;font-size:12px;transition:background .15s}
+button:hover{background:#e9e6e1}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #176bff;outline-offset:3px}
+p{line-height:1.5;margin:7px 0}
+h1,h2{margin:0;font-weight:650}
+h1{font-size:17px}h2{font-size:18px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.panel{height:calc(100% - 12px);margin:6px;display:flex;flex-direction:column;gap:12px;padding:12px;background:linear-gradient(135deg,#fffaf5,#faf4ef);border:1px solid #ddd3cb;border-radius:17px;overflow:hidden;box-shadow:0 2px 5px #27201a26}
+.main-content{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.main-content[hidden]{display:none}
+.chat-header{-webkit-app-region:no-drag;gap:6px;min-height:43px;margin:-12px -12px 0;padding:9px 11px;border-bottom:1px solid #e5ddd5}
+.titlebar.chat-header h1{font-family:"Segoe UI",Arial,sans-serif;font-size:18px;font-weight:650;letter-spacing:-.4px}
+.chat-header .panel-heading{gap:9px}
+.chat-header .panel-heading>.otto-logo{width:30px;height:30px;box-shadow:0 0 3px #ffcb4c55}
+.chat-kind{font-size:10px;color:#73737d;white-space:nowrap}
+.main-panel[data-minimized=true]{padding:0;gap:0}.main-panel[data-minimized=true] .chat-header{margin:0;padding:5px 11px;border:0;min-height:42px}
+.main-panel .chat-panel{overflow:hidden}
+.main-panel .snapshot-context[open]{max-height:100px;overflow:auto}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:28px;flex-shrink:0;-webkit-app-region:drag}
+.titlebar h1{font-family:Georgia,"Times New Roman",serif;font-size:21px;color:#17191e}
+.panel-heading{display:flex;align-items:center;gap:9px;min-width:0}
+.panel-heading>.otto-logo{width:28px;height:28px;flex-shrink:0}
+.window-actions{display:flex;align-items:center;gap:2px;-webkit-app-region:no-drag}
+.icon-button{width:27px;height:28px;padding:4px;background:transparent;border:0;color:#252b37;border-radius:7px;-webkit-app-region:no-drag;flex-shrink:0}
+.icon-button:hover{background:#e8e4de}
+.text-button{border:0;background:transparent;padding:4px;color:#686d78;font-size:11px}
+.badge{font-size:8px;letter-spacing:.55px;color:#99733b;background:#faecd4;border-radius:4px;padding:2px 4px;font-weight:650}
+.chat-panel{min-height:0;flex:1;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.chat-panel>details,.chat-panel>.message-input,.chat-panel>.context-option,.chat-panel>.disclosure,.chat-panel>.question-options{flex-shrink:0}
+.conversation{display:flex;flex-direction:column;flex:1;min-height:0;gap:14px}
+.conversation-compact{flex:0 0 auto;min-height:0;margin-top:auto}
+.chat-tools{display:flex;justify-content:flex-end;flex-shrink:0;margin-top:-6px}.chat-tools button{padding:0;font-size:10px}
+.message-list{margin:0;padding:0 1px 2px;list-style:none;overflow:auto;overflow-anchor:none;flex:1;min-height:48px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:#d7d0c7 transparent}
+.message{display:flex;align-items:flex-start;flex-shrink:0;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.message-avatar{display:grid;place-items:center;width:28px;height:28px;flex-shrink:0;border-radius:50%;background:#e4e1dd;font-size:11px;font-weight:650;margin-top:4px}
+.message-avatar>.otto-logo{width:28px;height:28px}
+.message-assistant>.message-avatar{background:transparent}
+.message-body{min-width:0;max-width:100%}
+.message-content{line-height:1.5;background:#f3e9e2;border:0;border-radius:15px;padding:10px 13px}
+.message-user{justify-content:flex-end;margin-left:32px}
+.message-user .message-content{background:#e7e9f1;border-radius:15px 15px 3px 15px}
+.message-assistant .message-content{background:#f4eae3;margin-right:26px}
+.math-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.math-inline{white-space:normal}
+.math-display{display:block;max-width:100%;overflow:auto;white-space:normal}
+.katex-display{margin:.65em 0}.katex{font-size:1.12em}
+.message-input{display:flex;flex-direction:column;gap:6px;flex-shrink:0;margin-top:auto}
+.composer{display:flex;align-items:center;gap:6px;border:1px solid #d8d2cc;border-radius:13px;padding:3px 3px 3px 13px;background:#fffaf6;box-shadow:inset 0 1px 2px #1d253005}
+.composer:focus-within{border-color:#9aadc8;box-shadow:0 0 0 2px #2466ff09}
+textarea{display:block;flex:1;width:100%;min-width:0;resize:none;min-height:34px;max-height:96px;padding:7px 0;border:0;background:transparent;font-size:14px;line-height:20px;color:#20232b;scrollbar-width:thin}
+textarea::placeholder{color:#81899b}textarea:focus-visible{outline:none}
+.send-button{display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border-radius:10px;padding:7px;border:1px solid #161b22;background:linear-gradient(140deg,#383b40,#1b1e24);box-shadow:inset 0 1px 1px #ffffff35,0 1px 2px #141c3126;color:#fff}
+.send-button:hover{background:#353b46}.send-button:disabled{opacity:1;color:#ffffffb8}
+.send-button .spinner{width:14px;height:14px;border-color:#ffffff66;border-top-color:#fff}
+.annotation-links{display:flex;flex-wrap:wrap;gap:5px;margin:6px 4px 0}
+.annotation-links button{display:inline-flex;gap:5px;max-width:100%;padding:4px 9px 4px 6px;border:1px solid color-mix(in srgb,var(--annotation-color) 40%,white);border-radius:20px;background:color-mix(in srgb,var(--annotation-color) 12%,#fffaf6);color:#252b35;font-size:10px;text-align:left;overflow:hidden;text-overflow:ellipsis}
+.chip-number,.card-number{display:grid;place-items:center;flex-shrink:0;background:var(--annotation-color);color:#fff;border-radius:50%;font-weight:650;width:17px;height:17px;font-size:11px}
+.lesson-controls{display:flex;align-items:center;justify-content:space-between;gap:5px;flex-shrink:0}
+.lesson-controls>button{font-size:11px}.lesson-controls svg{width:14px;height:14px}
+.provider-note{display:flex;flex-direction:column;gap:5px;flex-shrink:0;color:#85818a;font-size:9px;line-height:1.4}
+.response-notes p{margin:4px 0}.response-notes{max-height:65px;overflow:auto}
+.snapshot-context{font-size:10px;color:#7b7d85;flex-shrink:0}
+summary{cursor:pointer;line-height:1.5}
+.snapshot{margin:7px 0 0;border:1px solid #e6e1d8;border-radius:10px;padding:6px;background:#eeeae3}
+.snapshot img{display:block;width:100%;height:118px;object-fit:contain}
+.preview-image{max-width:100%;overflow:auto}
+.snapshot-enlarged .preview-image{max-height:250px}.snapshot-enlarged img{width:auto;height:auto;max-width:none;max-height:none}
+figcaption{font-size:9px;color:#7c7b80;text-align:center;padding-top:5px}
+.preview-toggle{display:flex;font-size:10px;margin:5px auto 0;padding:3px 8px}
+.disclosure,.muted,.empty-state{font-size:11px;color:#7b7d87;line-height:1.5;margin:0}
+.empty-state{padding:9px 0}
+.question-panel{padding:12px;gap:9px}
+.question-panel .titlebar h1{font-family:inherit;font-size:13px;font-weight:600}
+.question-panel .panel-heading>.otto-logo{width:24px;height:24px}
+.question-panel .chat-panel{gap:8px}
+.question-panel .message-input{margin-top:0}
+.context-option{display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer}
+input{accent-color:#126aff}input[type=checkbox]{width:15px;height:15px;margin:0}
+.question-options{display:flex;align-items:center;justify-content:space-between;gap:9px}
+.question-options>.muted{font-size:9px}
+.mode-picker{display:flex;gap:2px;border:0;margin:0;padding:2px;background:#ebe8e3;border-radius:7px}
+.mode-picker label{position:relative;padding:3px 8px;border-radius:5px;font-size:10px;cursor:pointer;color:#747782}
+.mode-picker label.active{background:#fff;color:#1d2535;box-shadow:0 1px 2px #20202013}
+.mode-picker input{position:absolute;opacity:0;width:1px;height:1px}
+.mode-picker label:has(input:focus-visible){outline:2px solid #1466ff}
+.annotation-card{padding:10px;gap:8px;border:1px solid var(--annotation-color);border-radius:13px;background:linear-gradient(135deg,#fffaf3,#fffaf7);box-shadow:0 2px 5px #30291e26}
+.card-titlebar{gap:9px;min-height:27px}.card-titlebar h1{font:600 15px/1.3 Georgia,"Times New Roman",serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.card-titlebar .window-actions{gap:0}.card-titlebar .icon-button{width:22px;height:23px;padding:3px;color:#343b46}.card-titlebar .icon-button svg{width:16px;height:16px}.card-close{display:none}.annotation-card:hover .card-close,.annotation-card:focus-within .card-close{display:inline-flex}
+.card-number{width:27px;height:27px;font-size:16px;font-weight:600;background:radial-gradient(ellipse at 35% 20%,color-mix(in srgb,var(--annotation-color) 72%,white),var(--annotation-color) 60%);box-shadow:inset 0 1px 2px #ffffff70}
+.card-explanation{font:16px/1.3 Georgia,"Times New Roman",serif;color:#222733;overflow:auto;min-height:0;max-height:88px;flex:1;padding:0 5px;scrollbar-width:thin}
+.card-explanation .katex{font-size:1.07em}
+.annotation-card .composer{border-radius:10px;padding:3px 3px 3px 10px}
+.annotation-card textarea{font-size:12px;min-height:27px;padding:4px 0;line-height:19px}
+.annotation-card .send-button{width:29px;height:29px;border-radius:8px;padding:5px}
+.card-expanded .card-explanation{flex:0 0 auto;max-height:82px;padding-bottom:8px;border-bottom:1px solid #eee9e3}
+.card-expanded .conversation{min-height:90px}.card-expanded .message{font-size:12px}.card-expanded .message-content{padding:8px 10px}.card-expanded .message-user{margin-left:16px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;font-size:9px;color:#8b8592}
+.card-footer .text-button{font-size:10px;padding:0}
+.otto-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:18%;width:100%;height:100%;aspect-ratio:1;border:2px solid #fff;border-radius:50%;background:radial-gradient(circle at 37% 28%,#fff699 0%,#ffe15c 33%,#ffc328 60%,#ff9c20 84%,#ff7526);box-shadow:0 0 3px 2px #ffe550aa,0 0 12px #ffcd4c85,inset 0 0 7px #fffbcacc}
+.otto-eyes{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:21%;pointer-events:none;z-index:1}
+.otto-eye{display:block;width:11%;height:24%;border-radius:999px;background:linear-gradient(#211512,#432112);box-shadow:inset 0 1px 1px #0005}
+.otto-companion{height:100%;display:grid;place-items:center}
+.otto-button{display:block;flex-shrink:0;width:76px;height:76px;padding:0;border:0;border-radius:50%;background:transparent;touch-action:none;user-select:none}
+.otto-button:hover{background:transparent;filter:brightness(1.05)}
+
+.settings-panel{padding:15px;gap:22px;border-radius:14px;background:linear-gradient(135deg,#fffdf9fa,#f5f1ebfa)}
+.settings-panel .panel-heading strong{font-size:13px;color:#1c2029;font-weight:650}
+.settings-symbol{color:#5b6373;display:flex;padding:4px}
+.availability{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:19px}
+.availability label{display:flex;align-items:flex-start;gap:11px;font-size:13px;cursor:pointer}
+.availability input{width:17px;height:17px;margin:2px 0 0}
+.availability strong{font-weight:600}.availability small{display:block;font-size:11px;margin-top:4px;color:#697184}
+.settings-note{padding-top:14px;margin:0;border-top:1px solid #e5e0d9;font-size:11px;color:#686d79;line-height:1.5}.settings-note span{font-size:10px;color:#8d8b91}
+.settings-actions{display:flex;justify-content:space-between;margin-top:auto}
+.selection-overlay{position:fixed;inset:0;cursor:crosshair;user-select:none;touch-action:none;background:transparent}
+.selection-dimming{position:absolute;inset:0;pointer-events:none}
+.selection-dimming>div{position:absolute;left:0;top:0;width:0;height:0;background:rgba(37,38,42,.3)}
+.selection-rect{position:absolute;border:1px solid #407cde;pointer-events:none}
+.selection-rect i,.focus-outline i{position:absolute;width:5px;height:5px;background:#fff;border:1px solid #407cde;transform:translate(-50%,-50%)}
+.selection-rect i:nth-child(1),.focus-outline i:nth-child(1){left:0;top:0}.selection-rect i:nth-child(2),.focus-outline i:nth-child(2){left:100%;top:0}.selection-rect i:nth-child(3),.focus-outline i:nth-child(3){left:0;top:100%}.selection-rect i:nth-child(4),.focus-outline i:nth-child(4){left:100%;top:100%}
+.selection-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);padding:5px 9px;border-radius:7px;background:#fffaf2ed;color:#485065;pointer-events:none;white-space:nowrap;font-size:11px;box-shadow:0 1px 4px #1519201a}
+.annotation-layer{position:fixed;inset:0;pointer-events:none}
+.explanation-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.explanation-leaders path{fill:none;stroke-width:1.8;stroke-linecap:round}
+.marker{position:absolute;pointer-events:auto;padding:0;background:transparent;border:0;border-radius:8px;color:var(--annotation-color);min-width:0}
+.marker svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1px 1px #ffffff80)}
+.marker svg path,.marker svg ellipse{stroke:var(--annotation-color);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.marker:hover{background:color-mix(in srgb,var(--annotation-color) 8%,transparent);outline:1px solid var(--annotation-color)}
+.marker-number{position:absolute;left:0;top:0;min-width:19px;height:19px;display:grid;place-items:center;background:var(--annotation-color);border:1.5px solid #fff;border-radius:50%;font-size:10px;font-weight:700;color:white;box-shadow:0 1px 4px #0002}
+.desktop-effects{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.screen-dimming>div{position:absolute;background:rgba(37,38,42,.3)}
+.focus-outline{position:absolute;border:1px solid #ffffff70;box-shadow:0 0 10px #ffffff30}
+.frozen-focus{position:absolute;overflow:hidden;pointer-events:none}
+.frozen-focus img{position:absolute;max-width:none}
+/* Coordinated palette and timing; the perimeter and globe remain separate lights. */
+.edge-glow{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.edge-space,.edge-haze,.edge-core{position:absolute;inset:0;pointer-events:none}
+.edge-haze{mask:linear-gradient(#fff 0 3px,#ffffffd9 5px,#ffffff80 10px,#ffffff38 18px,#ffffff13 27px,transparent 36px) top/100% 36px no-repeat,linear-gradient(0deg,#fff 0 3px,#ffffffd9 5px,#ffffff80 10px,#ffffff38 18px,#ffffff13 27px,transparent 36px) bottom/100% 36px no-repeat,linear-gradient(90deg,#fff 0 3px,#ffffffd9 5px,#ffffff80 10px,#ffffff38 18px,#ffffff13 27px,transparent 36px) left/36px 100% no-repeat,linear-gradient(-90deg,#fff 0 3px,#ffffffd9 5px,#ffffff80 10px,#ffffff38 18px,#ffffff13 27px,transparent 36px) right/36px 100% no-repeat}
+.edge-core{mask:linear-gradient(#fff 0 1.2px,#ffffff99 2px,transparent 3px) top/100% 3px no-repeat,linear-gradient(0deg,#fff 0 1.2px,#ffffff99 2px,transparent 3px) bottom/100% 3px no-repeat,linear-gradient(90deg,#fff 0 1.2px,#ffffff99 2px,transparent 3px) left/3px 100% no-repeat,linear-gradient(-90deg,#fff 0 1.2px,#ffffff99 2px,transparent 3px) right/3px 100% no-repeat}
+.launcher-radiance{position:absolute;width:76px;height:76px;pointer-events:none}
+.launcher-radiance[data-material=webgl]>.otto-liquid{visibility:visible}
+.edge-light{position:absolute;left:50%;top:50%;width:145vmax;height:145vmax;transform:translate(-50%,-50%);animation:edge-orbit 24s linear infinite;will-change:transform}
+@keyframes edge-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.edge-glow::after{content:"";position:absolute;inset:0;border:.65px solid #fffde9e8;box-shadow:inset 0 0 1px #fffbd27a;pointer-events:none}
+.edge-glow-faint{opacity:.13}.edge-glow-bright{opacity:1}
+.otto-button{position:relative;isolation:isolate}
+.otto-button:hover{filter:none}
+/* Contained 6px halo + 8px edge fade leave a visible gap at the 16px body inset. */
+.otto-button::before{content:"";position:absolute;inset:-6px;z-index:-1;border-radius:50%;background:var(--glass-palette);transform:rotate(var(--glass-drift,0deg));mask:radial-gradient(circle closest-side,#fff 0 79%,#ffffffc7 84%,#ffffff66 89%,#ffffff22 94%,transparent 99%);opacity:.9;pointer-events:none}
+.otto-button::after{content:"";position:absolute;inset:-1.5px;z-index:-1;border-radius:50%;background:var(--glass-palette);transform:rotate(var(--glass-drift,0deg));padding:2px;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;pointer-events:none}
+.otto-logo.otto-glass{isolation:isolate;overflow:hidden;border:.7px solid #fff9cccf;background:linear-gradient(145deg,#ffda258f,#f4416980 65%,#433eff8a);box-shadow:0 0 1px .4px #fffedfbd,inset 0 0 1px #fff8}
+/* Shared palette and timing, but each globe is its own contained light source. */
+.otto-glass-light{position:absolute;inset:-7%;border-radius:50%;background:linear-gradient(145deg,#ffca16e6 8%,#ff7015eb 38%,#ff254de6 58%,#cc167edb 78%,#343cf4e6);animation:otto-color-flow var(--glass-duration,24s) ease-in-out infinite;will-change:transform}
+.otto-glass-pool{position:absolute;inset:0;border-radius:45%;animation-duration:var(--glass-duration,24s);animation-timing-function:ease-in-out;animation-iteration-count:infinite;will-change:transform}
+.glass-gold{background:radial-gradient(ellipse 64% 70% at 18% 25%,#fff459 0%,#ffe513 38%,#ffbe0ce6 56%,#ff9e001a 79%,transparent 90%);animation-name:glass-gold-drift}
+.glass-warm{background:radial-gradient(ellipse 46% 46% at 76% 24%,#ff5015e6 0%,#ff2338b3 40%,#ed19644d 68%,transparent 85%);animation-name:glass-warm-drift}
+.glass-cool{background:radial-gradient(ellipse 37% 38% at 79% 87%,#67faff 0%,#00d7ff 22%,#0076fff5 44%,#4230ffc4 63%,#d31d938a 80%,transparent 100%);animation-name:glass-cool-drift}
+.otto-glass-depth{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse 17% 9% at 77% 88%,#a9ffffb0,transparent 90%),radial-gradient(ellipse at 45% 35%,transparent 52%,#35144a12 77%,#17215240 100%);box-shadow:inset 1.2px 0 2px #fff0b080,inset -1px -1px 1.5px #789aff66}
+.otto-glass .otto-reflections{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.otto-glass .otto-eye{position:relative;z-index:1;background:linear-gradient(#17131b,#28151b);box-shadow:inset 0 1px 1px #0009,0 .6px .6px #ffffff24}
+.otto-companion[data-glow=faint] .otto-button::before{opacity:.2}
+.otto-companion[data-glow=faint] .otto-button::after{opacity:.55}
+.otto-companion[data-glow=off] .otto-button::before,.otto-companion[data-glow=off] .otto-button::after{opacity:0}
+:root[data-window-hidden=true] *,:root[data-window-hidden=true] *::before,:root[data-window-hidden=true] *::after{animation-play-state:paused!important}
+.otto-pointer{position:absolute;display:flex;align-items:center;gap:8px;padding:5px 10px 5px 5px;border-radius:24px;background:#fffaf2;color:#61586a;box-shadow:0 2px 12px #0002;font-size:10px;white-space:nowrap}
+.pointer-logo{width:29px;height:29px;animation:otto-pulse 1.8s ease-in-out infinite}
+.request-status{display:flex;align-items:center;gap:8px;flex-shrink:0;padding:6px 8px;background:#f5efe5;border-radius:9px;font-size:11px;color:#756448}.request-status>span:nth-child(2){flex:1}.request-status button{font-size:10px;padding:3px 6px}
+.spinner{flex-shrink:0;height:13px;width:13px;border:2px solid #dfd2b4;border-top-color:#ac812f;border-radius:50%;animation:spin .8s linear infinite}
+.error{font-size:11px;color:#8b342e;background:#fff0eb;border-radius:8px;padding:7px;margin:0;max-height:90px;overflow:auto;flex-shrink:0}
+.retry-row{display:flex;align-items:center;gap:8px;justify-content:space-between;font-size:10px;color:#7b6d60}.retry-row button{font-size:10px}
+.setup-notice{background:#fbf1df;border:1px solid #e8ddc5;border-radius:10px;padding:10px;font-size:11px;line-height:1.4;max-height:150px;overflow:auto;flex-shrink:0}.setup-notice p{margin:5px 0}.setup-notice strong{font-size:12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes otto-pulse{50%{transform:scale(.93);opacity:.78}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.selection-snapshot{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.question-input-panel{margin:6px;padding:12px;display:flex;flex-direction:column;gap:12px;border:1px solid #ddd3cb;border-radius:17px;background:linear-gradient(135deg,#fffaf5,#faf4ef);box-shadow:0 2px 5px #30291e21;overflow:hidden}
+.question-input-panel .message-input{margin:0;gap:7px;min-width:0}
+.question-input-panel .composer{border-radius:13px;padding:3px 3px 3px 13px}
+.question-input-panel textarea{font-size:14px}
+.question-input-panel .error{font-size:11px;line-height:1.4;padding:7px;max-height:64px}
+.question-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.question-tools{display:flex;align-items:center;gap:4px}
+.retake-button{border:0;background:transparent;color:#777782;padding:6px 3px;font-size:11px}
+.retake-button svg{width:14px;height:14px}
+.quick-answer-button{background:#fff3d5;border-color:#e8cc83;color:#765118;padding:5px 9px;border-radius:9px;font-size:11px;font-weight:600}
+.quick-answer-button:hover{background:#ffebba;border-color:#d7b258}.quick-answer-button svg{width:15px;height:15px}
+.provider-setting{display:flex;align-items:center;justify-content:space-between;font-size:10px}
+.settings-panel{gap:12px;overflow:auto}.settings-panel .availability{gap:14px}
+
+.settings-embedded{display:flex;flex-direction:column;flex:1;min-height:0;margin:0;padding:4px 0;background:transparent;border:0;box-shadow:none;scrollbar-width:thin}
+.settings-embedded .titlebar{-webkit-app-region:no-drag}
+
+.panel-view{height:100%}.panel-view[hidden]{display:none}
+
+.question-input-panel[data-settings-open=true]{height:calc(100% - 12px)}
+.question-content[hidden]{display:none}
+.question-content{min-width:0}
+
+@keyframes otto-color-flow{0%,100%{transform:rotate(-3deg) scale(1.02)}50%{transform:rotate(4deg) scale(1.06)}}
+@keyframes glass-gold-drift{0%,100%{transform:translate(-1%,0) scale(1.02,.98) rotate(-4deg)}35%{transform:translate(3%,4%) scale(1.1,.94) rotate(3deg)}70%{transform:translate(-2%,3%) scale(.98,1.07) rotate(-2deg)}}
+@keyframes glass-warm-drift{0%,100%{transform:translate(0,-2%) rotate(2deg)}40%{transform:translate(-5%,5%) scale(1.05,.93) rotate(-6deg)}75%{transform:translate(3%,1%) scale(.96,1.06) rotate(4deg)}}
+@keyframes glass-cool-drift{0%,100%{transform:translate(0,0) scale(1,1)}35%{transform:translate(-4%,-3%) scale(1.08,.98) rotate(-4deg)}70%{transform:translate(1%,-5%) scale(.96,1.06) rotate(3deg)}}
+.otto-logo[data-idle=true] .otto-eyes{animation:otto-glance 43s ease-in-out infinite}
+.otto-logo[data-idle=true] .otto-eye{animation:otto-blink 19s linear infinite;transform-origin:center}
+@keyframes otto-glance{0%,9%,15%,37%,44%,72%,78%,100%{transform:translate(0,0)}11%,13%{transform:translate(2.2%,-.8%)}39%,42%{transform:translate(-2.4%,.6%)}74%,76%{transform:translate(1.5%,1.2%)}}
+@keyframes otto-blink{0%,18%,19.2%,61%,62.2%,100%{transform:scaleY(1)}18.6%,61.6%{transform:scaleY(.12)}}
+.otto-logo[data-motion-visible=false] *{animation-play-state:paused!important}
+.otto-logo[data-color-motion=false] .otto-glass-light,.otto-logo[data-color-motion=false] .otto-glass-pool{animation-play-state:paused!important}
+.chat-header .otto-logo.otto-glass{box-shadow:0 0 1px #ffffdbcc,0 0 3px #ffb53455}
+
+/* The GPU draws premultiplied RGBA into a genuinely transparent native window.
+   Only the circular material is opaque; the canvas includes room for fading mist. */
+.otto-liquid{position:absolute;left:-21.052632%;top:-21.052632%;width:142.105264%;height:142.105264%;pointer-events:none;visibility:hidden}
+/* Keep a circular face beneath the GPU frame. A discarded/restoring WebGL
+   buffer must never turn the clickable launcher into invisible eyes. The
+   opaque shader normally covers this; the outer halo stays transparent. */
+.otto-logo.otto-glass[data-material=webgl]{overflow:visible;border:0;background:var(--glass-palette);box-shadow:none}
+.otto-logo[data-material=webgl]>.otto-liquid{visibility:visible}
+.otto-logo[data-material=webgl]>.otto-glass-light,.otto-logo[data-material=webgl]>.otto-glass-depth,.otto-logo[data-material=webgl]>.otto-reflections,.otto-logo[data-material=webgl]::after{display:none}
+.otto-button:has([data-material=webgl])::before,.otto-button:has([data-material=webgl])::after{display:none}
+
+/* Tight focus layouts keep the composer and controls outside the scrolling history. */
+@media(max-height:380px){
+  .main-panel:not([data-minimized=true]){padding:12px;gap:10px}
+  .main-panel .main-content,.main-panel .chat-panel{gap:6px}
+  .main-panel .conversation{min-height:0;gap:6px}
+  .main-panel .message-list{min-height:40px}
+  .main-panel .chat-tools{margin-top:0}
+  .main-panel .provider-note{gap:2px}
+}
+
+/* Quiet corner brackets keep the captured focus clear without a selection toolbar. */
+.focus-outline i{width:11px;height:11px;background:transparent;border:0;border-color:#525867;border-style:solid;transform:none;filter:drop-shadow(0 0 1px #fff)}
+.focus-outline i:nth-child(1){left:0;top:0;border-width:2px 0 0 2px;border-radius:2px 0 0 0}
+.focus-outline i:nth-child(2){left:auto;right:0;top:0;border-width:2px 2px 0 0;border-radius:0 2px 0 0}
+.focus-outline i:nth-child(3){left:0;top:auto;bottom:0;border-width:0 0 2px 2px;border-radius:0 0 0 2px}
+.focus-outline i:nth-child(4){left:auto;right:0;top:auto;bottom:0;border-width:0 2px 2px 0;border-radius:0 0 2px 0}
+.marker-number{opacity:0;transition:opacity .15s}.marker:hover .marker-number,.marker:focus-visible .marker-number{opacity:1}
+.marker svg path,.marker svg ellipse{stroke-width:2}
+.settings-embedded .snapshot-context[open]{max-height:none;overflow:visible}
+.settings-panel .lesson-controls{flex-wrap:wrap}
+
+.marker>span:not(.marker-number){display:block;width:100%;height:100%}.marker-connected{visibility:hidden}
+
+.provider-setting{gap:10px;padding:10px;border:1px solid #e5ddd5;border-radius:10px;background:#fffaf4;flex-shrink:0}.provider-setting>div{display:flex;flex-direction:column;gap:4px;min-width:0}.provider-setting strong{font-size:12px}.provider-setting code{font-size:11px;overflow-wrap:anywhere}.provider-setting small{font-size:10px;color:#77727a}.provider-setting button{flex-shrink:0}
+
+/* A crisp specular core, saturated outer rim, then a contained transparent halo. */
+.otto-logo.otto-glass::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 .55px #fffce685;pointer-events:none}
+
+/* The snapshot and all markings are one compositor surface, in explicit order. */
+.frozen-focus,.screen-dimming{z-index:0}.focus-outline{z-index:1}
+.annotation-graphics{z-index:2}.annotation-graphics .marker{pointer-events:none}
+.organized-mark{transition:opacity .16s ease}
+.annotation-card[data-emphasized="true"]{box-shadow:0 0 0 1px var(--annotation-color),0 8px 28px #151b2830}
+@media(prefers-reduced-motion:reduce){.organized-mark{transition:none}}
+.annotation-controls .marker{background:transparent}.annotation-controls .marker:hover{background:transparent}
+.annotation-card .card-titlebar h1{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;min-width:0}
+.annotation-card .card-close{display:inline-flex}
+.annotation-card[data-minimized=true]{gap:0;padding:9px 10px}
+.annotation-card[data-minimized=true] .card-titlebar h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-body{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0}
+.card-body[hidden],.message[hidden]{display:none}
+.card-task-label{margin:0;padding:0 3px;color:#6c6060;font:600 11px/1.4 "Segoe UI",sans-serif;overflow-wrap:anywhere;flex-shrink:0}
+.annotation-card .conversation{flex:1;min-height:0;gap:8px;margin:0}
+.annotation-card .message-list{min-height:0;padding:0 1px;flex:1;scrollbar-gutter:stable}
+.conversation-introduction{flex-shrink:0;list-style:none;min-width:0}
+.annotation-card .card-explanation{max-height:none;overflow:visible;flex:none;line-height:1.45;padding:0 3px;font-size:16px}
+.card-expanded .card-explanation{padding-bottom:8px}
+.annotation-card .message{font-size:14px}
+.annotation-card .message-assistant .message-content{margin-right:8px}
+.card-measure{position:fixed!important;left:-10000px!important;top:0!important;height:auto!important;max-height:none!important;min-height:0!important;visibility:hidden!important;pointer-events:none!important}
+.card-measure .card-body,.card-measure .conversation,.card-measure .message-list{flex:none!important;height:auto!important;max-height:none!important;overflow:visible!important}
+.card-measure .message-list{overflow:auto!important}
+.card-measure .message-input{margin-top:0}
+.math-text p{margin:0 0 .65em}.math-text p:last-child{margin-bottom:0}
+.math-text :is(h1,h2,h3,h4,h5,h6){font-family:inherit;font-size:1.05em;font-weight:650;line-height:1.35;margin:.85em 0 .4em;white-space:normal}
+.math-text :is(h1,h2,h3,h4,h5,h6):first-child{margin-top:0}
+.math-table-wrap{max-width:100%;overflow-x:auto;margin:.5em 0 .7em;white-space:normal}
+.math-text table{width:100%;table-layout:fixed;border-collapse:collapse;font:inherit}
+.math-text th,.math-text td{padding:6px 8px;border:1px solid #dcd5cc;vertical-align:top;overflow-wrap:anywhere}
+.math-text th{font-weight:650;background:#f1ece5}
+.math-text ul,.math-text ol{margin:.35em 0 .65em;padding-left:1.3em;white-space:normal}
+.math-text li{margin:.2em 0}.math-text pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eee9e3;padding:8px;border-radius:7px;margin:.5em 0;font:12px/1.5 Consolas,monospace}
+.math-text code{font-family:Consolas,monospace;font-size:.9em}.math-text p code{background:#eee9e3;padding:1px 3px;border-radius:3px}

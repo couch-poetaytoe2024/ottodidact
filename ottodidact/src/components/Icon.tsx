@@ -1,0 +1,4 @@
+export function Icon({name}:{name:'send'|'close'|'settings'|'more'|'expand'|'collapse'|'plus'|'retake'|'bolt'|'chevronUp'|'chevronDown'}) {
+  const paths={send:'M5 4l14 8-14 8 4-8-4-8zm4 8h10',close:'M6 6l12 12M6 18L18 6',settings:'M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1 1-3z M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0',more:'M5 12h.01M12 12h.01M19 12h.01',expand:'M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5',collapse:'M5 12h14',plus:'M12 5v14M5 12h14',chevronUp:'M6 15l6-6 6 6',chevronDown:'M6 9l6 6 6-6'};
+  return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={name==='more'?3:1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={name==='retake'?'M4 10a8 8 0 1 1 1 7M4 4v6h6':name==='bolt'?'M13 2 4 14h7l-1 8 10-12h-8l1-8z':paths[name]}/></svg>;
+}

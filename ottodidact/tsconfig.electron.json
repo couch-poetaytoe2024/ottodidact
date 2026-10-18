@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "dist-electron",
+    "noEmit": false,
+    "jsx": "preserve",
+    "esModuleInterop": true
+  },
+  "include": ["desktop/**/*.ts", "shared/**/*.ts"]
+}

@@ -1,0 +1,17 @@
+# Private configuration and local review / publication artifacts
+.env
+.env.*
+!.env.example
+.publication/
+.ui-review/
+node_modules/
+dist/
+dist-electron/
+release/
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
